@@ -37,7 +37,7 @@
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="TU Delft Astrodynamic Toolbox  documentation" href="../index.html"/>
         <link rel="up" title="Installation Guide" href="index.html"/>
-        <link rel="next" title="2. Download Tudat Bundle" href="downloadTudatBundle.html"/>
+        <link rel="next" title="Install on Linux" href="setupDevLinux.html"/>
         <link rel="prev" title="Installation Guide" href="index.html"/> 
 
   
@@ -92,23 +92,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Start Page</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Installation Guide</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">1. Setup Development Environment</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#install-on-linux">Install on Linux</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#cmake-git">CMake &amp; git</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#qt-creator">Qt Creator</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#install-on-windows">Install on Windows</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#cmake">CMake</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#qt-creator-mingw">Qt Creator &amp; MinGW</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#install-on-mac-os-x">Install on Mac OS X</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id1">CMake</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#git">git</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#xcode">XCode</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id2">Qt Creator</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="setupDevLinux.html">Install on Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setupDevWindows.html">Install on Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setupDevMacOs.html">Install on Mac OS X</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="downloadTudatBundle.html">2. Download Tudat Bundle</a></li>
@@ -185,195 +171,13 @@
             
   <div class="section" id="setup-development-environment">
 <span id="setupdevelopmentenvironment"></span><h1>1. Setup Development Environment<a class="headerlink" href="#setup-development-environment" title="Permalink to this headline">¶</a></h1>
-<p>The first step is to set up the Integrated Development Environment (IDE) that will be used to write, compile and run your code. We recommend to use Qt Creator as your IDE due to its multi-platform capability and its popularity among students and staff. Note that the compiler and the precise installation steps will vary depending on your OS, so please refer to the section that is relevant to you.</p>
-<div class="section" id="install-on-linux">
-<h2>Install on Linux<a class="headerlink" href="#install-on-linux" title="Permalink to this headline">¶</a></h2>
-<p>This section of the guide refers to the installation of the IDE under a Linux-based OS.</p>
-<div class="section" id="cmake-git">
-<h3>CMake &amp; git<a class="headerlink" href="#cmake-git" title="Permalink to this headline">¶</a></h3>
-<p>This step depends on your distribution and more specifically its package manager, the most common are treated below. Please refer to the documentation of your distribution.
-Fire up a terminal and enter the following command appropriate for your distribution:</p>
-<p><strong>Debian-based distributions (Debian, Ubuntu, Mint, etc.)</strong>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">cmake</span>
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">git</span>
-</pre></div>
-</div>
-<p><strong>RedHat-based distributions (Red Hat, Fedora, CentOS, etc.)</strong>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">make</span> <span class="n">gcc</span> <span class="n">gcc</span><span class="o">-</span><span class="n">c</span><span class="o">++</span> <span class="n">kernel</span><span class="o">-</span><span class="n">devel</span> <span class="n">cmake</span>
-<span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">git</span>
-</pre></div>
-</div>
-<p><strong>OpenSUSE</strong>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">zypper</span> <span class="n">install</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">recommends</span> <span class="n">gcc</span> <span class="n">gcc</span><span class="o">-</span><span class="n">c</span><span class="o">++</span> <span class="n">make</span> <span class="n">cmake</span>
-<span class="n">sudo</span> <span class="n">zypper</span> <span class="n">install</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">recommends</span> <span class="n">git</span>
-</pre></div>
-</div>
-<p><strong>ArchLinux</strong>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="n">base</span><span class="o">-</span><span class="n">devel</span> <span class="n">cmake</span>
-<span class="n">sudo</span> <span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="n">git</span>
-</pre></div>
-</div>
-<p>Note that the compiler and make tools are maintained by the manager. Please make sure your versions are up to date, see your package manager documentation for more information. In the very unlikely scenario that your manager does not have the previously mentioned packages or they are out of date, you can always install these packages manually or through experimental / user repositories. In this case refer to the documentation of&nbsp;GCC&nbsp;and&nbsp;CMake.</p>
-</div>
-<div class="section" id="qt-creator">
-<h3>Qt Creator<a class="headerlink" href="#qt-creator" title="Permalink to this headline">¶</a></h3>
-<dl class="docutils">
-<dt><strong>Step 1: Download Qt SDK</strong></dt>
-<dd>Go to&nbsp;<a class="reference external" href="http://www.qt.io/download-open-source/">http://www.qt.io/download-open-source/</a>&nbsp;and download the Qt SDK for Linux, either the 32- or 64-bit install, depending on your system and preferences.</dd>
-<dt><strong>Step 2: Install Qt Creator</strong></dt>
-<dd><p class="first">Next, head to the download folder and make the installer executable by typing the following in a terminal:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="n">qt</span><span class="o">-</span><span class="n">unified</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">x64</span><span class="o">-</span><span class="p">[</span><span class="n">version</span><span class="p">]</span><span class="o">-</span><span class="n">online</span><span class="o">.</span><span class="n">run</span>
-</pre></div>
-</div>
-<p>Then launch the installer using:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">qt</span><span class="o">-</span><span class="n">unified</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">x64</span><span class="o">-</span><span class="p">[</span><span class="n">version</span><span class="p">]</span><span class="o">-</span><span class="n">online</span><span class="o">.</span><span class="n">run</span><span class="o">.</span>
-</pre></div>
-</div>
-<p class="last">Please follow the instructions given throughout the installer. Note that you can safely “Skip” creating an account. When you get to the component selection, you can deselect all optional components, save for Qt Creator. Once the installation is finished, you can run Qt Creator by typing /home/user/Qt/Tools/QtCreator/bin/qtcreator from the command-line or use your favourite application launcher.</p>
-</dd>
-</dl>
-<p>You are now ready to download the Tudat bundle, use the navigation below to go to the next step.</p>
-</div>
-</div>
-<div class="section" id="install-on-windows">
-<h2>Install on Windows<a class="headerlink" href="#install-on-windows" title="Permalink to this headline">¶</a></h2>
-<p>This section of the guide refers to the installation of the IDE under Windows. These instructions should work for all versions of Windows from XP to Windows 10.</p>
-<div class="section" id="cmake">
-<h3>CMake<a class="headerlink" href="#cmake" title="Permalink to this headline">¶</a></h3>
-<p>So, we are now going to walk through the process of installing CMake on your computer, after which we will install Qt Creator, which comes bundled with the compiler and related tools. We use&nbsp;CMake&nbsp;to manage software project(s), and to instruct your compiler how to generate and link libraries.</p>
-<dl class="docutils">
-<dt><strong>Step 1: Download CMake</strong></dt>
-<dd>To download CMake, go to the&nbsp;CMake website&nbsp;and look for the Windows Installer <code class="docutils literal"><span class="pre">cmake-[version]-win32-x86.msi</span></code> at the top of table for Binary distributions. Click the link, and choose Run or Save (if available) in order to get the installer on your computer.</dd>
-<dt><strong>Step 2: Install CMake</strong></dt>
-<dd><p class="first">If your installer does not run automatically once the download has been completed, go to your Downloads directory and start the installer by double-clicking on it. Click on Run if your operating system tells you it does not recognize the publisher. You now get to the welcome screen for the CMake installer. You will have to press Next and accept the License Agreement (if you choose) and Next again. Now you will get to the Install Options. Make sure to select either Add CMake to the system PATH for <em>all users</em> (preferred) or <em>current user</em> (alternatively).</p>
-<div class="last admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">In rare cases, the installer will be unable to add CMake to your system path, because it is already too long (mind you the PATH list, not the CMake path, which is limited at 4095 characters). In this case choose “Add CMake to the PATH for current user” instead or try to clean up your system path manually.</p>
-</div>
-</dd>
-<dt><strong>Step 3: Complete the installation</strong></dt>
-<dd>Finish the remainder of the installation. Leave the rest default (location and shortcuts).</dd>
-</dl>
-</div>
-<div class="section" id="qt-creator-mingw">
-<h3>Qt Creator &amp; MinGW<a class="headerlink" href="#qt-creator-mingw" title="Permalink to this headline">¶</a></h3>
-<p>Now we are going to walk through the process of installing Qt Creator on your computer. This will also install the MinGW, a Minimalist GNU Environmentn for Windows, containing (amongst others) GNU C++ compilers and Make programs.</p>
-<dl class="docutils">
-<dt><strong>Step 1: Download the installer</strong></dt>
-<dd>To begin the installation, use the following link to download the installer for the Qt SDK: <a class="reference external" href="http://www.qt.io/download-open-source/">http://www.qt.io/download-open-source/</a> As before it is best to choose to Run the instsaller directly.</dd>
-<dt><strong>Step 2: Install Qt Creator</strong></dt>
-<dd><p class="first">If you have selected Run, the installer should start automatically. If it does not start automatically, go to your downloads directory and start the installer by double-clicking on it.</p>
-<p class="last">You will now see a welcome screen. You can “Skip” creating an account. Next the online installer will do some checks, this may take a few moments. You should get the option to specify the install directory, see the step below.</p>
-</dd>
-<dt><strong>Step 3: Set installation directory</strong></dt>
-<dd>Do not install in Program Files, instead install Qt in your C:/ directory (or D:/ …). Do not install it in the Program Files (x86) directory (or any directory with spaces), since this is know to cause issues later on.</dd>
-<dt><strong>Step 4: Select custom installation components</strong></dt>
-<dd><p class="first">Click Next until you get to the Select Components step. Here you get the option to select which parts of the Qt SDK you wish to install, shown below. Only Qt Creator (default, can not be unchecked) and MinGW (latest version) from the Tools section are necessary.</p>
-<div class="last admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">It is necessary to have MinGW 4.9.1 (or greater), otherwise you will not be able to compile the Tudat libraries.</p>
-</div>
-</dd>
-<dt><strong>Step 5: Complete the installation</strong></dt>
-<dd>Click Next to go to the License Agreement, where you find the license attached to the use of Qt. Scroll through it if you wish to know what you are accepting. Agree to the conditions and continue to the next step. You can choose to have shortcuts installed or not. Now you can click Install to start the installation. QtCreator and MinGW will be installed on your computer.</dd>
-<dt><strong>Step 6: Configure Qt Creator</strong></dt>
-<dd>Open Qt Creator and go to Tools/Options. Under the Build &amp; Run section, choose the Kits tab and select Desktop. Please verify the following:
-- The compiler is set to MinGW &gt;= 4.9.1.
-- The CMake tool is present.
-- The primary generator is MinGW and secondary generator is CodeBlocks.</dd>
-</dl>
-<p>The next step is to download the Tudat bundle. Click next to go there.</p>
-</div>
-</div>
-<div class="section" id="install-on-mac-os-x">
-<h2>Install on Mac OS X<a class="headerlink" href="#install-on-mac-os-x" title="Permalink to this headline">¶</a></h2>
-<p>This section of the guide refers to the installation of the IDE under Mac OS. These instructions should work for all versions of Mac OS X. You may need to give the Administrator password when installing some programs, depending on your user settings.</p>
-<div class="section" id="id1">
-<h3>CMake<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p>So, we are now going to walk through the process of installing CMake on your computer. We use CMake to manage software project(s), and to instruct your compiler how to generate and link libraries.</p>
-<dl class="docutils">
-<dt><strong>Step 1: Download CMake</strong></dt>
-<dd>Download CMake from the CMake website.</dd>
-<dt><strong>Step 2: Launch Apple disk image</strong></dt>
-<dd>Once you have successfully downloaded the <code class="docutils literal"><span class="pre">.dmg</span></code> file, simply double-click on it.</dd>
-<dt><strong>Step 3: Install CMake application</strong></dt>
-<dd>To complete the installation you must solve the puzzle (no worries it’s kindergarten stuff): drag and drop CMake onto the Applications folder.</dd>
-<dt><strong>Step 4: Launch CMake</strong></dt>
-<dd><p class="first">Launch CMake from Launchpad or Spotlight.</p>
-<div class="last admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If you get the warning: “‘CMake’ can’t be opened because it is from an unidentified developer.”, please make sure to enable “Allow apps dowloaded from: Anywhere” under the “System Preferences” &gt; “Security &amp; Privacy”.</p>
-</div>
-</dd>
-<dt><strong>Step 5: Add CMake to path</strong></dt>
-<dd><p class="first">From the “Tools” menu select “How to Install For Command Line Use”. From the dialog that pops up, note the <code class="docutils literal"><span class="pre">cmake-gui</span> <span class="pre">path</span></code>. Open a terminal by executing Cmd+Space, typing terminal and confirming with Enter. Type:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span>
-<span class="n">sudo</span> <span class="o">/</span><span class="n">Applications</span><span class="o">/</span><span class="n">CMake</span><span class="o">.</span><span class="n">app</span><span class="o">/</span><span class="n">Contents</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">cmake</span><span class="o">-</span><span class="n">gui</span> <span class="o">--</span><span class="n">install</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span>
-</pre></div>
-</div>
-<p>Hopefully no errors occured. Verify that it has been correctly installed to PATH by executing:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">--</span><span class="n">version</span>
-</pre></div>
-</div>
-<div class="last admonition note">
-<p class="first admonition-title">Note</p>
-<p>If cmake can’t be found, even after succesfully installing CMake for command-line use, you first need to verify that the symbolic links were properly made, execute:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ln</span> <span class="o">-</span><span class="n">al</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">cmake</span>
-</pre></div>
-</div>
-<p>You should see something like:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">lrwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span> <span class="mi">1</span> <span class="n">root</span> <span class="n">wheel</span> <span class="mi">42</span> <span class="mi">5</span> <span class="n">Feb</span> <span class="mi">10</span><span class="p">:</span><span class="mi">49</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">cmake</span> <span class="o">-&gt;</span> <span class="o">/</span><span class="n">Applications</span><span class="o">/</span><span class="n">CMake</span><span class="o">.</span><span class="n">app</span><span class="o">/</span><span class="n">Contents</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">cmake</span>
-</pre></div>
-</div>
-<p>This means that <code class="docutils literal"><span class="pre">/usr/local/bin</span></code> is not added to the list of paths. Do this now manually by editing <code class="docutils literal"><span class="pre">/etc/paths</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pico</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">paths</span>
-</pre></div>
-</div>
-<p>and adding <code class="docutils literal"><span class="pre">/usr/local/bin</span></code> on a new line. Exit (Cmd+X) and save (Y) your changes. Close the terminal and restart the terminal:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">--</span><span class="n">version</span>
-</pre></div>
-</div>
-<p class="last">should now give you the desired result.</p>
-</div>
-</dd>
-</dl>
-</div>
-<div class="section" id="git">
-<h3>git<a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h3>
-<p>We are now going to walk through the process of installing git on your computer. We use git to download the software of the project(s) and to make sure that you can always be up-to-date on the latest modifications to the code.</p>
-<dl class="docutils">
-<dt><strong>Step 1: Download git</strong></dt>
-<dd>The install process for git is very similar to that for CMake: go to the git website to download the installer <code class="docutils literal"><span class="pre">.dmg</span></code>.</dd>
-<dt><strong>Step 2: Install git</strong></dt>
-<dd>Run the <code class="docutils literal"><span class="pre">.dmg</span></code> and open the enclosed <code class="docutils literal"><span class="pre">.pkg</span></code> to install git on your system. Step through the installation and provide you administrator password when prompted.</dd>
-</dl>
-</div>
-<div class="section" id="xcode">
-<h3>XCode<a class="headerlink" href="#xcode" title="Permalink to this headline">¶</a></h3>
-<p>For the compilation of Tudat and its libraries, XCode (or the command-line tools for XCode) version 7.3 or newer is required. You can upgrade XCode through the AppStore or by downloading a new version, to replace the old one.</p>
-<dl class="docutils">
-<dt><strong>Step 1: Download XCode</strong></dt>
-<dd>Download XCode (command-line tools alone suffices) from the Apple developer downloads (ADC account and Apple ID required) or through the Mac App Store. Note installing only the “Command Line Tools OSX 10.XX for Xcode 7.X” offers a significant reduction in size (download size of 157MB vs 4.7GB).</dd>
-</dl>
-<p><strong>Step 2: Install XCode</strong>
-Open the downloaded <code class="docutils literal"><span class="pre">.dmg</span></code> and execute the enclosed <code class="docutils literal"><span class="pre">.pkg</span></code> to start the installation. Complete the installation.</p>
-</div>
-<div class="section" id="id2">
-<h3>Qt Creator<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<dl class="docutils">
-<dt><strong>Step 1: Download Qt Creator</strong></dt>
-<dd>Download QtCreator from the Qt website.</dd>
-<dt><strong>Step 2: Execute the installer</strong></dt>
-<dd>Open the downloaded <code class="docutils literal"><span class="pre">.dmg</span></code> and execute the enclosed installer.</dd>
-<dt><strong>Step 3: Skip account</strong></dt>
-<dd>You can safely skip logging into your Qt account. Press “Skip” and “Next”, the online installer will prepare the sources. Click continue. The installer will now prepare the installation (this will take a short while). You might be prompted by an Xcode warning, even though you have Xcode or the Xcode command-line tools installed. If you encounter this, click away the warning by pressing “Ok”, three times, the installation will continue as normal.</dd>
-<dt><strong>Step 4: Choose a location</strong></dt>
-<dd>Specify your preferred installation directory (or leave it at default).</dd>
-<dt><strong>Step 5: Select components</strong></dt>
-<dd>Click “Continue” until you get to the “Select Components” step. Here you get the option to select which parts of the Qt SDK you wish to install, shown below. Only QtCreator (default, can not be unchecked) from the Tools section is necessary.</dd>
-</dl>
-<p><strong>Step 6: Complete installation</strong></p>
-</div>
+<p>The first step is to set up the Integrated Development Environment (IDE) that will be used to write, compile and run your code. We recommend to use <a class="reference external" href="https://www.qt.io/ide/">Qt Creator</a> as your IDE due to its multi-platform capability and its popularity among students and staff. Note that the compiler and the precise installation steps will vary depending on your OS, so please refer to the section that is relevant to you.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="setupDevLinux.html">Install on Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setupDevWindows.html">Install on Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setupDevMacOs.html">Install on Mac OS X</a></li>
+</ul>
 </div>
 </div>
 
@@ -387,7 +191,7 @@ Open the downloaded <code class="docutils literal"><span class="pre">.dmg</span>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="downloadTudatBundle.html" class="btn btn-neutral float-right" title="2. Download Tudat Bundle" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="setupDevLinux.html" class="btn btn-neutral float-right" title="Install on Linux" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral" title="Installation Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
