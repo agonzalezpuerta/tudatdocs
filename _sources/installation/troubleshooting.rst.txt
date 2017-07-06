@@ -2,10 +2,10 @@
 
 5. Troubleshooting
 ==================
+Welcome to the troubleshooting guide. You have most likely been asked to come here because you have a problem with your Tudat installation or its configuration. Hopefully the steps discussed here will help you get up and running!
 
-1. Troubleshooting installation
-
-
+1. Troubleshooting Installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Welcome to the troubleshooting guide. You have most likely been asked to come here because you have a problem with your Tudat installation (or stumbled upon this page, great, yay!).
 How to use this guide: please complete all checks and copy the output (even if a check seems succesfull). Some checks will provide additional tests and solutions in case the check initially fails. Please complete these instructions as well and redo the original test!
 

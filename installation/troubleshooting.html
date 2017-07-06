@@ -95,7 +95,10 @@
 <li class="toctree-l2"><a class="reference internal" href="downloadTudatBundle.html">2. Download Tudat Bundle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="configureTudatLibraries.html">3. Configure Tudat Libraries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="setupNewApps.html">4. Setup New Applications</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">5. Troubleshooting</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5. Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting-installation">1. Troubleshooting Installation</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
@@ -166,9 +169,9 @@
             
   <div class="section" id="troubleshooting">
 <span id="id1"></span><h1>5. Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h1>
-<ol class="arabic simple">
-<li>Troubleshooting installation</li>
-</ol>
+<p>Welcome to the troubleshooting guide. You have most likely been asked to come here because you have a problem with your Tudat installation or its configuration. Hopefully the steps discussed here will help you get up and running!</p>
+<div class="section" id="troubleshooting-installation">
+<h2>1. Troubleshooting Installation<a class="headerlink" href="#troubleshooting-installation" title="Permalink to this headline">¶</a></h2>
 <p>Welcome to the troubleshooting guide. You have most likely been asked to come here because you have a problem with your Tudat installation (or stumbled upon this page, great, yay!).
 How to use this guide:&nbsp;please complete all checks and copy the output (even if a check seems succesfull). Some checks will provide additional tests and solutions in case the check initially fails. Please complete these instructions as well and redo the original test!</p>
 <p>1.1 Check CMake
@@ -356,6 +359,7 @@ echo “/Applications/MyApp.app/Contents/bin/” | sudo tee -a /etc/paths</p>
 cat /etc/paths</p>
 <p># Otherwise we can restore from backup with the command
 sudo cp ~/paths_backup.txt /etc/paths</p>
+</div>
 </div>
 
 
